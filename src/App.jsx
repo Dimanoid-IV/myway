@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper } from 'lucide-react';
+import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper, FileText } from 'lucide-react';
 
 const TicketCard = ({ type, price, originalPrice, features, highlight = false }) => (
   <div className={`relative pt-8 pb-8 px-8 rounded-2xl glass-card transition-all duration-300 hover:scale-105 hover:border-purple-500/50 ${highlight ? 'border-purple-500 border-2 shadow-[0_0_30px_rgba(124,58,237,0.3)]' : ''}`}>
@@ -231,6 +231,98 @@ function App() {
                   <TicketCard {...ticket} />
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Terms & Conditions Section */}
+        <section className="max-w-5xl mx-auto py-20 px-6">
+          <div className="glass-card rounded-2xl p-8 md:p-12">
+            <div className="flex items-center gap-3 mb-8">
+              <FileText className="w-8 h-8 text-purple-400" />
+              <h2 className="text-3xl md:text-4xl font-bold">Terms & Conditions</h2>
+            </div>
+            
+            <div className="space-y-8 text-gray-300">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-purple-400">1️⃣</span> Ticket Purchase
+                </h3>
+                <ul className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <li>• All tickets are purchased online through our website.</li>
+                  <li>• Payment is made in Earth currency (or galactic credits — if you prefer).</li>
+                  <li>• After a successful payment, the ticket is sent to your email as a PDF file.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-purple-400">2️⃣</span> Ticket
+                </h3>
+                <ul className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <li>• The PDF ticket is the only confirmation of your seat on the alien spaceship.</li>
+                  <li>• It can be printed on a standard printer or displayed on a screen.</li>
+                  <li>• Each ticket has a unique QR code, which is scanned by the crew upon boarding.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-purple-400">3️⃣</span> Age and Medical Restrictions
+                </h3>
+                <ul className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <li>• Minimum passenger age: 3 years old (passengers over 100 years old are allowed only with crew approval).</li>
+                  <li>• Pregnant passengers are allowed only in Zero Gravity Class and at their own risk.</li>
+                  <li>• Allergies to anti-gravity or teleportation: please inform the crew in advance.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-purple-400">4️⃣</span> Flights
+                </h3>
+                <ul className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <li>• Flight times and routes may be changed without notice at the discretion of the alien captain.</li>
+                  <li>• <span className="text-red-400 font-semibold">Return to Earth is not guaranteed</span> for tickets of any class.</li>
+                  <li>• Passengers must follow the crew's instructions and must not attempt to hijack the spaceship.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-purple-400">5️⃣</span> Cancellation and Refunds
+                </h3>
+                <ul className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <li>• <span className="text-yellow-400 font-semibold">Refunds are not available. Money is non-refundable.</span></li>
+                  <li>• Passengers must be prepared for the adventure before purchasing a ticket.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-purple-400">6️⃣</span> Copyright and Liability
+                </h3>
+                <ul className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <li>• All images and texts on the website and tickets are protected by the laws of Earth and the Galaxy.</li>
+                  <li>• We are not responsible for:
+                    <ul className="ml-6 mt-2 space-y-1">
+                      <li>— encounters with aliens;</li>
+                      <li>— turning into an asteroid;</li>
+                      <li>— accidental teleportation to another planet.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-purple-400">7️⃣</span> Special Conditions
+                </h3>
+                <ul className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <li>• Each ticket grants the right to smiles, joy, and an unforgettable space adventure.</li>
+                  <li>• Please enjoy your flight and don't forget to take a selfie with the alien crew. 📸✨</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
