@@ -73,6 +73,14 @@ function App() {
     }
   };
 
+  // Scroll to tickets section
+  const scrollToTickets = () => {
+    const ticketsSection = document.getElementById('tickets');
+    if (ticketsSection) {
+      ticketsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const tickets = [
     {
       type: "Economy Orbit",
@@ -175,7 +183,10 @@ function App() {
             Return to Earth not guaranteed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-full font-bold text-lg shadow-xl shadow-purple-600/20 transition-all flex items-center justify-center gap-2">
+            <button 
+              onClick={scrollToTickets}
+              className="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-full font-bold text-lg shadow-xl shadow-purple-600/20 transition-all flex items-center justify-center gap-2"
+            >
               Book Passage <ArrowRight className="w-5 h-5" />
             </button>
             <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full font-bold text-lg transition-all">
