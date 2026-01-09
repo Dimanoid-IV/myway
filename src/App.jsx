@@ -1,5 +1,5 @@
-import React from 'react';
-import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper } from 'lucide-react';
 
 const TicketCard = ({ type, price, originalPrice, features, highlight = false }) => (
   <div className={`relative p-8 rounded-2xl glass-card transition-all duration-300 hover:scale-105 hover:border-purple-500/50 ${highlight ? 'border-purple-500 border-2 shadow-[0_0_30px_rgba(124,58,237,0.3)]' : ''}`}>
@@ -30,6 +30,8 @@ const TicketCard = ({ type, price, originalPrice, features, highlight = false })
 );
 
 function App() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
   const tickets = [
     {
       type: "Economy Orbit",
@@ -61,6 +63,29 @@ function App() {
     <div className="min-h-screen w-full bg-[#050505] text-white selection:bg-purple-500/30 overflow-x-hidden">
       {/* Starry Background Effect */}
       <div className="fixed inset-0 pointer-events-none star-background opacity-40"></div>
+      
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 cursor-pointer animate-fade-in"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div className="relative max-w-7xl max-h-[90vh] w-full">
+            <img 
+              src={lightboxImage} 
+              alt="Full size" 
+              className="w-full h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button 
+              className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm transition-all"
+              onClick={() => setLightboxImage(null)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 px-6 py-6 border-b border-white/5 backdrop-blur-md">
@@ -106,6 +131,92 @@ function App() {
             </button>
           </div>
         </div>
+
+        {/* Gallery Section */}
+        <section className="max-w-5xl mx-auto py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">As Prophesied</h2>
+            <p className="text-gray-400 text-lg">Ancient visions become reality</p>
+          </div>
+          
+          {/* Compact Gallery */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4 px-6 mb-12">
+            <div 
+              className="group relative overflow-hidden rounded-xl glass-card cursor-pointer h-48 md:h-64"
+              onClick={() => setLightboxImage('/vang1.png')}
+            >
+              <img 
+                src="/vang1.png" 
+                alt="Baba Vanga Prophecy 1" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white font-bold text-sm md:text-base">Click to expand</div>
+              </div>
+            </div>
+            
+            <div 
+              className="group relative overflow-hidden rounded-xl glass-card cursor-pointer h-48 md:h-64"
+              onClick={() => setLightboxImage('/vang2.png')}
+            >
+              <img 
+                src="/vang2.png" 
+                alt="Baba Vanga Prophecy 2" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white font-bold text-sm md:text-base">Click to expand</div>
+              </div>
+            </div>
+            
+            <div 
+              className="group relative overflow-hidden rounded-xl glass-card cursor-pointer h-48 md:h-64"
+              onClick={() => setLightboxImage('/vang3.png')}
+            >
+              <img 
+                src="/vang3.png" 
+                alt="Baba Vanga Prophecy 3" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white font-bold text-sm md:text-base">Click to expand</div>
+              </div>
+            </div>
+          </div>
+
+          {/* News Sources */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center px-6">
+            <a 
+              href="https://nypost.com/2026/01/08/lifestyle/clairvoyant-baba-vanga-predicted-alien-spaceship-would-enter-earths-atmosphere-and-outbreak-of-wwiii-for-2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-8 py-4 rounded-xl glass-card hover:border-purple-500/50 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+            >
+              <Newspaper className="w-6 h-6 text-purple-400 group-hover:text-purple-300" />
+              <div className="flex-1">
+                <div className="text-sm text-gray-500 uppercase tracking-wide">Featured in</div>
+                <div className="font-bold text-white group-hover:text-purple-300 transition-colors">New York Post</div>
+              </div>
+              <ExternalLink className="w-5 h-5 text-gray-500 group-hover:text-purple-400 transition-colors" />
+            </a>
+            
+            <a 
+              href="https://www.mirror.co.uk/news/weird-news/massive-alien-ship-enter-earths-36500431"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-8 py-4 rounded-xl glass-card hover:border-purple-500/50 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+            >
+              <Newspaper className="w-6 h-6 text-purple-400 group-hover:text-purple-300" />
+              <div className="flex-1">
+                <div className="text-sm text-gray-500 uppercase tracking-wide">Featured in</div>
+                <div className="font-bold text-white group-hover:text-purple-300 transition-colors">The Mirror News</div>
+              </div>
+              <ExternalLink className="w-5 h-5 text-gray-500 group-hover:text-purple-400 transition-colors" />
+            </a>
+          </div>
+        </section>
 
         {/* Pricing/Tickets Section */}
         <section id="tickets" className="max-w-7xl mx-auto py-32">
