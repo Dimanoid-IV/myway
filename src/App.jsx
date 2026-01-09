@@ -67,18 +67,18 @@ function App() {
       {/* Lightbox Modal */}
       {lightboxImage && (
         <div 
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 cursor-pointer animate-fade-in"
+          className="fixed inset-0 z-[100] bg-black/95 flex items-start justify-center overflow-y-auto cursor-pointer animate-fade-in"
           onClick={() => setLightboxImage(null)}
         >
-          <div className="relative max-w-7xl max-h-[90vh] w-full">
+          <div className="relative w-full max-w-7xl p-4 my-8">
             <img 
               src={lightboxImage} 
               alt="Full size" 
-              className="w-full h-full object-contain rounded-lg"
+              className="w-full h-auto rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
             <button 
-              className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm transition-all"
+              className="sticky top-4 float-right -mt-16 mr-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm transition-all z-10"
               onClick={() => setLightboxImage(null)}
             >
               <X className="w-6 h-6" />
