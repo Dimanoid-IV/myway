@@ -79,6 +79,11 @@ function App() {
     }
   }, []);
 
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Handle booking button click
   const handleBooking = async (ticketType, price) => {
     console.log(`Booking ${ticketType} for $${price}`);
@@ -519,6 +524,19 @@ function App() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Scroll to Top Button */}
+      {scrollY > 300 && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-[55] w-14 h-14 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center shadow-xl shadow-purple-600/30 transition-all duration-300 hover:scale-110 animate-fade-in"
+          aria-label="Scroll to top"
+        >
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
       )}
     </div>
   );
