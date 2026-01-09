@@ -38,21 +38,21 @@ function App() {
     },
     {
       type: "Business Galaxy",
-      price: 45,
-      originalPrice: 65,
+      price: 15,
+      originalPrice: 20,
       highlight: true,
       features: ["Lunar Fly-by", "Private Sleeping Pod", "Synthetic Meals Included", "20kg Cosmic Luggage"],
     },
     {
       type: "Alien VIP",
-      price: 120,
-      originalPrice: 180,
+      price: 25,
+      originalPrice: 35,
       features: ["Interstellar Gateway", "Alien Interaction Lounge", "Zero-G Spa Access", "Personal Translator Droid"],
     },
     {
       type: "One-Way Ticket",
-      price: 300,
-      originalPrice: 500,
+      price: 30,
+      originalPrice: 45,
       features: ["To the Unknown", "Deep Sleep Chamber", "Legacy Archive Storage", "Final Earth-View Gala"],
     },
   ];
