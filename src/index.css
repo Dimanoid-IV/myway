@@ -42,12 +42,24 @@ body {
 
 .star-background {
   background-image: 
-    radial-gradient(1px 1px at 10% 10%, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 20% 50%, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 40% 90%, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 50% 10%, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 60% 40%, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 80% 80%, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 90% 20%, #fff, rgba(0,0,0,0));
+    radial-gradient(2px 2px at 10% 10%, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 20% 50%, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40% 90%, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 60% 40%, rgba(255,255,255,0.85), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 80% 80%, rgba(255,255,255,0.75), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90% 20%, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 75% 60%, rgba(255,255,255,0.9), rgba(0,0,0,0));
   background-size: 200px 200px;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }

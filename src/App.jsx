@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-[#050505] text-white selection:bg-purple-500/30 overflow-x-hidden">
       {/* Starry Background Effect */}
-      <div className="fixed inset-0 pointer-events-none star-background opacity-40"></div>
+      <div className="fixed inset-0 pointer-events-none star-background opacity-60"></div>
       
       {/* Lightbox Modal */}
       {lightboxImage && (
