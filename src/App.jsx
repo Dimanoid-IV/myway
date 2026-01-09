@@ -85,14 +85,17 @@ function App() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-8 animate-fade-in">
             <Star className="w-4 h-4 fill-purple-400" />
-            <span>Next Departure: 23:40 GMT-X</span>
+            <span>Следующий рейс: 2026</span>
           </div>
           <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight leading-tight">
             LEAVE THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 glow-text">EARTH</span> <br />
             BEHIND.
           </h1>
-          <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl mb-12">
+          <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl mb-4">
             Secure your passage on the most advanced alien spacecraft. Reliable interstellar travel for the bold explorers of tomorrow.
+          </p>
+          <p className="max-w-2xl mx-auto text-red-400/80 text-base md:text-lg mb-12 italic">
+            Возврат на Землю не гарантирован.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-full font-bold text-lg shadow-xl shadow-purple-600/20 transition-all flex items-center justify-center gap-2">
@@ -110,10 +113,14 @@ function App() {
             <h2 className="text-4xl font-bold mb-4">Choose Your Voyage</h2>
             <p className="text-gray-400">Affordable access to the stars. Limited seats per jump.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {tickets.map((ticket, index) => (
-              <TicketCard key={index} {...ticket} />
-            ))}
+          <div className="overflow-x-auto pb-4 px-6 -mx-6 md:px-0 md:mx-0">
+            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-w-max md:min-w-0">
+              {tickets.map((ticket, index) => (
+                <div key={index} className="w-[280px] md:w-auto flex-shrink-0">
+                  <TicketCard {...ticket} />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
