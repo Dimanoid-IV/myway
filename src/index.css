@@ -63,3 +63,79 @@ body {
     opacity: 0.8;
   }
 }
+
+/* Spiral Galaxy */
+.galaxy-spiral {
+  width: 800px;
+  height: 800px;
+  position: relative;
+  animation: rotate-galaxy 60s linear infinite;
+}
+
+.galaxy-spiral::before,
+.galaxy-spiral::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* Galaxy core */
+.galaxy-spiral::before {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, 
+    rgba(167, 139, 250, 0.8) 0%, 
+    rgba(124, 58, 237, 0.6) 30%,
+    rgba(139, 92, 246, 0.3) 60%,
+    transparent 100%);
+  box-shadow: 
+    0 0 60px rgba(167, 139, 250, 0.6),
+    0 0 120px rgba(124, 58, 237, 0.4);
+  animation: pulse-core 3s ease-in-out infinite;
+}
+
+/* Spiral arms */
+.galaxy-spiral::after {
+  width: 100%;
+  height: 100%;
+  background: 
+    conic-gradient(from 0deg,
+      transparent 0deg,
+      rgba(167, 139, 250, 0.15) 45deg,
+      transparent 90deg,
+      transparent 180deg,
+      rgba(139, 92, 246, 0.15) 225deg,
+      transparent 270deg),
+    conic-gradient(from 90deg,
+      transparent 0deg,
+      rgba(196, 181, 253, 0.1) 45deg,
+      transparent 90deg,
+      transparent 180deg,
+      rgba(167, 139, 250, 0.1) 225deg,
+      transparent 270deg);
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+@keyframes rotate-galaxy {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pulse-core {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}

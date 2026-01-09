@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper, FileText } from 'lucide-react';
 
 const TicketCard = ({ type, price, originalPrice, features, highlight = false }) => (
@@ -31,6 +31,16 @@ const TicketCard = ({ type, price, originalPrice, features, highlight = false })
 
 function App() {
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const tickets = [
     {
@@ -107,7 +117,18 @@ function App() {
 
       {/* Hero Section */}
       <main className="relative pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
+        {/* Spiral Galaxy Background */}
+        <div 
+          className="absolute left-1/2 top-32 -translate-x-1/2 pointer-events-none"
+          style={{
+            transform: `translate(-50%, 0) scale(${1 + scrollY * 0.002})`,
+            opacity: Math.max(0, 1 - scrollY * 0.002),
+          }}
+        >
+          <div className="galaxy-spiral"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-8 animate-fade-in">
             <Star className="w-4 h-4 fill-purple-400" />
             <span>Next Flight: 2026</span>
