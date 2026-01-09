@@ -164,10 +164,10 @@ function App() {
           <div className="grid grid-cols-3 gap-3 md:gap-4 px-6 mb-12">
             <div 
               className="group relative overflow-hidden rounded-xl glass-card cursor-pointer h-48 md:h-64"
-              onClick={() => setLightboxImage('https://ibb.co/Fk3Xzm5J')}
+              onClick={() => setLightboxImage('/vang1.png')}
             >
               <img 
-                src="https://ibb.co/Fk3Xzm5J" 
+                src="/vang1.png" 
                 alt="Baba Vanga Prophecy 1" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -178,10 +178,10 @@ function App() {
             
             <div 
               className="group relative overflow-hidden rounded-xl glass-card cursor-pointer h-48 md:h-64"
-              onClick={() => setLightboxImage('https://ibb.co/21ktvqjR')}
+              onClick={() => setLightboxImage('/vang2.png')}
             >
               <img 
-                src="https://ibb.co/21ktvqjR" 
+                src="/vang2.png" 
                 alt="Baba Vanga Prophecy 2" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -193,10 +193,10 @@ function App() {
             
             <div 
               className="group relative overflow-hidden rounded-xl glass-card cursor-pointer h-48 md:h-64"
-              onClick={() => setLightboxImage('https://ibb.co/B529h1rL')}
+              onClick={() => setLightboxImage('/vang3.png')}
             >
               <img 
-                src="https://ibb.co/B529h1rL" 
+                src="/vang3.png" 
                 alt="Baba Vanga Prophecy 3" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
