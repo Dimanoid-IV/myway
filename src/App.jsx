@@ -219,7 +219,7 @@ function App() {
         </section>
 
         {/* Pricing/Tickets Section */}
-        <section id="tickets" className="max-w-7xl mx-auto py-32">
+        <section id="tickets" className="max-w-7xl mx-auto pt-32 pb-16">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold mb-4">Choose Your Voyage</h2>
             <p className="text-gray-400">Affordable access to the stars. Limited seats per jump.</p>
@@ -236,7 +236,7 @@ function App() {
         </section>
 
         {/* Terms & Conditions Section */}
-        <section className="max-w-5xl mx-auto py-20 px-6">
+        <section className="max-w-5xl mx-auto pb-20 px-6">
           <div className="glass-card rounded-2xl p-8 md:p-12">
             <div className="flex items-center gap-3 mb-8">
               <FileText className="w-8 h-8 text-purple-400" />
