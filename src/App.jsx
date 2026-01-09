@@ -114,7 +114,7 @@ function App() {
           </div>
           <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight leading-tight">
             LEAVE THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 glow-text">EARTH</span> <br />
-            BEHIND.
+            BEHIND
           </h1>
           <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl mb-4">
             Secure your passage on the most advanced alien spacecraft. Reliable interstellar travel for the bold explorers of tomorrow.
