@@ -37,6 +37,20 @@ const TicketCard = ({ type, price, originalPrice, features, highlight = false, o
 function App() {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [scrollY, setScrollY] = useState(0);
+  const [showCookieBanner, setShowCookieBanner] = useState(true);
+
+  useEffect(() => {
+    // Check if user already accepted cookies
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    if (cookiesAccepted === 'true') {
+      setShowCookieBanner(false);
+    }
+  }, []);
+
+  const acceptCookies = () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    setShowCookieBanner(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -447,6 +461,38 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Cookie Banner */}
+      {showCookieBanner && (
+        <div className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6 animate-fade-in">
+          <div className="max-w-4xl mx-auto glass-card rounded-2xl p-6 md:p-8 border-2 border-purple-500/30 shadow-2xl shadow-purple-600/20">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+              <div className="flex-1">
+                <h3 className="text-lg font-bold mb-2 text-white">🍪 We use cookies to keep this site in orbit</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  We use cookies to keep this site in orbit and improve your experience.<br />
+                  <span className="italic text-purple-400">No alien tracking. No mind control. Just standard Earth cookies.</span><br />
+                  Accept to continue your journey.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                <button
+                  onClick={acceptCookies}
+                  className="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-xl font-bold transition-all shadow-lg shadow-purple-600/20 whitespace-nowrap"
+                >
+                  Accept
+                </button>
+                <Link
+                  to="/privacy"
+                  className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-bold transition-all text-center whitespace-nowrap"
+                >
+                  Settings
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
