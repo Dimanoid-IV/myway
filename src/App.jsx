@@ -119,10 +119,10 @@ function App() {
       <main className="relative pt-32 pb-20 px-6">
         {/* Spiral Galaxy Background */}
         <div 
-          className="absolute left-1/2 top-32 -translate-x-1/2 pointer-events-none"
+          className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"
           style={{
-            transform: `translate(-50%, 0) scale(${1 + scrollY * 0.002})`,
-            opacity: Math.max(0, 1 - scrollY * 0.002),
+            transform: `translate(-50%, -50%) scale(${1 + scrollY * 0.005})`,
+            opacity: Math.max(0, 1 - scrollY * 0.0015),
           }}
         >
           <div className="galaxy-spiral"></div>
