@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper } from 'lucide-react';
 
 const TicketCard = ({ type, price, originalPrice, features, highlight = false }) => (
-  <div className={`relative p-8 rounded-2xl glass-card transition-all duration-300 hover:scale-105 hover:border-purple-500/50 ${highlight ? 'border-purple-500 border-2 shadow-[0_0_30px_rgba(124,58,237,0.3)]' : ''}`}>
+  <div className={`relative pt-8 pb-8 px-8 rounded-2xl glass-card transition-all duration-300 hover:scale-105 hover:border-purple-500/50 ${highlight ? 'border-purple-500 border-2 shadow-[0_0_30px_rgba(124,58,237,0.3)] mt-6' : ''}`}>
     {highlight && (
-      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold tracking-wider uppercase">
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider uppercase whitespace-nowrap">
         Most Popular
       </div>
     )}
@@ -220,12 +220,12 @@ function App() {
 
         {/* Pricing/Tickets Section */}
         <section id="tickets" className="max-w-7xl mx-auto py-32">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2 className="text-4xl font-bold mb-4">Choose Your Voyage</h2>
             <p className="text-gray-400">Affordable access to the stars. Limited seats per jump.</p>
           </div>
           <div className="overflow-x-auto pb-4 px-6 -mx-6 md:px-0 md:mx-0">
-            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-w-max md:min-w-0">
+            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-w-max md:min-w-0 pt-4">
               {tickets.map((ticket, index) => (
                 <div key={index} className="w-[280px] md:w-auto flex-shrink-0">
                   <TicketCard {...ticket} />
