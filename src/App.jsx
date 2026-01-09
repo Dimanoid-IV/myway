@@ -81,6 +81,22 @@ function App() {
     }
   };
 
+  // Scroll to features section
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Scroll to terms section
+  const scrollToTerms = () => {
+    const termsSection = document.getElementById('terms');
+    if (termsSection) {
+      termsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const tickets = [
     {
       type: "Economy Orbit",
@@ -189,7 +205,10 @@ function App() {
             >
               Book Passage <ArrowRight className="w-5 h-5" />
             </button>
-            <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full font-bold text-lg transition-all">
+            <button 
+              onClick={scrollToFeatures}
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full font-bold text-lg transition-all"
+            >
               View Fleet
             </button>
           </div>
@@ -299,7 +318,7 @@ function App() {
         </section>
 
         {/* Terms & Conditions Section */}
-        <section className="max-w-5xl mx-auto pb-20 px-6">
+        <section id="terms" className="max-w-5xl mx-auto pb-20 px-6">
           <div className="glass-card rounded-2xl p-8 md:p-12">
             <div className="flex items-center gap-3 mb-8">
               <FileText className="w-8 h-8 text-purple-400" />
@@ -391,7 +410,7 @@ function App() {
         </section>
 
         {/* Features Section */}
-        <section className="max-w-7xl mx-auto py-20 border-t border-white/5">
+        <section id="features" className="max-w-7xl mx-auto py-20 border-t border-white/5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="space-y-4">
               <Zap className="w-10 h-10 text-yellow-500" />
@@ -422,7 +441,7 @@ function App() {
           <p className="text-gray-500 text-sm">© 2026 Interstellar Travel Agency. All rights reserved.</p>
           <div className="flex gap-6 text-gray-500 text-sm">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <button onClick={scrollToTerms} className="hover:text-white transition-colors">Terms</button>
             <a href="#" className="hover:text-white transition-colors">Contact</a>
           </div>
         </div>
