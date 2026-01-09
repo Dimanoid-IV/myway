@@ -38,6 +38,7 @@ function App() {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [scrollY, setScrollY] = useState(0);
   const [showCookieBanner, setShowCookieBanner] = useState(true);
+  const [showContactDropdown, setShowContactDropdown] = useState(false);
 
   useEffect(() => {
     // Check if user already accepted cookies
@@ -175,12 +176,38 @@ function App() {
             <span className="text-xl font-bold tracking-tight glow-text">mywayto.space</span>
           </div>
           <div className="hidden md:flex gap-8 items-center text-sm font-medium text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">Fleet</a>
-            <a href="#" className="hover:text-white transition-colors">Destinations</a>
-            <a href="#" className="hover:text-white transition-colors">Experience</a>
-            <button className="bg-white/5 border border-white/10 px-5 py-2 rounded-full hover:bg-white/10 transition-all">
-              Login
-            </button>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <button onClick={scrollToTerms} className="hover:text-white transition-colors">Terms</button>
+            
+            {/* Contact Dropdown */}
+            <div className="relative">
+              <button 
+                onClick={() => setShowContactDropdown(!showContactDropdown)}
+                className="hover:text-white transition-colors flex items-center gap-1"
+              >
+                Contact
+                <svg className={`w-4 h-4 transition-transform ${showContactDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {showContactDropdown && (
+                <div 
+                  className="absolute right-0 mt-2 w-64 glass-card rounded-xl p-4 border border-white/10 shadow-xl z-50"
+                  onMouseLeave={() => setShowContactDropdown(false)}
+                >
+                  <div className="text-center">
+                    <p className="text-gray-400 text-sm mb-3">Intergalactic contact</p>
+                    <a 
+                      href="mailto:kmpdomen@gmail.com" 
+                      className="block px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-medium transition-colors"
+                    >
+                      kmpdomen@gmail.com
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
