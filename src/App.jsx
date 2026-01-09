@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { createCheckoutSession } from './stripe';
 
 const TicketCard = ({ type, price, originalPrice, features, highlight = false, onBooking }) => (
@@ -440,7 +441,7 @@ function App() {
           </div>
           <p className="text-gray-500 text-sm">© 2026 Interstellar Travel Agency. All rights reserved.</p>
           <div className="flex gap-6 text-gray-500 text-sm">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <button onClick={scrollToTerms} className="hover:text-white transition-colors">Terms</button>
             <a href="#" className="hover:text-white transition-colors">Contact</a>
           </div>
