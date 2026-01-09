@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper, FileText } from 'lucide-react';
+import { createCheckoutSession } from './stripe';
 
-const TicketCard = ({ type, price, originalPrice, features, highlight = false }) => (
+const TicketCard = ({ type, price, originalPrice, features, highlight = false, onBooking }) => (
   <div className={`relative pt-8 pb-8 px-8 rounded-2xl glass-card transition-all duration-300 hover:scale-105 hover:border-purple-500/50 ${highlight ? 'border-purple-500 border-2 shadow-[0_0_30px_rgba(124,58,237,0.3)]' : ''}`}>
     {highlight && (
       <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider uppercase whitespace-nowrap">
@@ -23,7 +24,10 @@ const TicketCard = ({ type, price, originalPrice, features, highlight = false })
         </li>
       ))}
     </ul>
-    <button className={`w-full py-3 rounded-xl font-bold transition-all ${highlight ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg shadow-purple-600/20' : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'}`}>
+    <button 
+      onClick={() => onBooking(type, price)}
+      className={`w-full py-3 rounded-xl font-bold transition-all ${highlight ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg shadow-purple-600/20' : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'}`}
+    >
       Book This Voyage
     </button>
   </div>
@@ -58,6 +62,16 @@ function App() {
       }
     }
   }, []);
+
+  // Handle booking button click
+  const handleBooking = async (ticketType, price) => {
+    console.log(`Booking ${ticketType} for $${price}`);
+    const result = await createCheckoutSession(ticketType, price);
+    
+    if (!result.success) {
+      alert(`Error: ${result.error}\n\nPlease configure your Stripe Payment Links in the .env file.`);
+    }
+  };
 
   const tickets = [
     {
@@ -266,7 +280,7 @@ function App() {
             <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-w-max md:min-w-0 pt-6">
               {tickets.map((ticket, index) => (
                 <div key={index} className={`w-[280px] md:w-auto flex-shrink-0 snap-center ${ticket.highlight ? 'md:snap-align-none' : ''}`}>
-                  <TicketCard {...ticket} />
+                  <TicketCard {...ticket} onBooking={handleBooking} />
                 </div>
               ))}
             </div>
