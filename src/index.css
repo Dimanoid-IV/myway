@@ -139,3 +139,10 @@ body {
     transform: translate(-50%, -50%) scale(1.1);
   }
 }
+
+/* Scroll snap for mobile centered card */
+@media (max-width: 768px) {
+  #tickets .overflow-x-auto {
+    scroll-padding-inline: calc(50% - 140px);
+  }
+}

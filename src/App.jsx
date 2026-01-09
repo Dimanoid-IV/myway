@@ -42,6 +42,23 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Auto-scroll to highlighted card on mobile
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      const highlightedIndex = tickets.findIndex(t => t.highlight);
+      if (highlightedIndex !== -1) {
+        setTimeout(() => {
+          const container = document.querySelector('#tickets .overflow-x-auto');
+          if (container) {
+            const cardWidth = 280 + 32; // card width + gap
+            const scrollPosition = highlightedIndex * cardWidth - (window.innerWidth / 2 - 140);
+            container.scrollTo({ left: Math.max(0, scrollPosition), behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  }, []);
+
   const tickets = [
     {
       type: "Economy Orbit",
@@ -245,10 +262,10 @@ function App() {
             <h2 className="text-4xl font-bold mb-4">Choose Your Voyage</h2>
             <p className="text-gray-400">Affordable access to the stars. Limited seats per jump.</p>
           </div>
-          <div className="overflow-x-auto pb-4 px-6 -mx-6 md:px-0 md:mx-0">
+          <div className="overflow-x-auto pb-4 px-6 -mx-6 md:px-0 md:mx-0 scroll-smooth snap-x snap-mandatory md:snap-none">
             <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 min-w-max md:min-w-0 pt-6">
               {tickets.map((ticket, index) => (
-                <div key={index} className="w-[280px] md:w-auto flex-shrink-0">
+                <div key={index} className={`w-[280px] md:w-auto flex-shrink-0 snap-center ${ticket.highlight ? 'md:snap-align-none' : ''}`}>
                   <TicketCard {...ticket} />
                 </div>
               ))}
