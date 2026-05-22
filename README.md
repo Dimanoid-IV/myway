@@ -105,10 +105,27 @@ npm run build
 
 The production files will be in the `dist` directory.
 
+## SEO Blog (50 Articles)
+
+The project includes **50 long-form SEO articles** on U.S. UAP/UFO declassification (PURSUE, war.gov/UFO, AARO, KONA BLUE, Grusch, Apollo files) and space-ticket commerce.
+
+- **Blog index:** `/blog/`
+- **Articles:** `/blog/posts/{slug}.html`
+- **Sitemap:** `/sitemap.xml`
+- **RSS:** `/rss.xml`
+
+Regenerate after editing `scripts/seo-articles.mjs`:
+
+```bash
+npm run generate:blog
+```
+
 ## Project Structure
 
 ```
 myway/
+├── public/blog/          # Generated SEO articles (50 posts)
+├── scripts/              # Blog generator
 ├── src/
 │   ├── App.jsx           # Main application component
 │   ├── stripe.js         # Stripe integration logic
