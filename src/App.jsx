@@ -2,6 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Rocket, Star, ShieldCheck, Zap, Globe, Menu, X, ArrowRight, ExternalLink, Newspaper, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createCheckoutSession } from './stripe';
+import blogManifest from './blog-manifest.json';
+
+const FEATURED_BLOG_SLUGS = [
+  'war-gov-ufo-portal-pursue-explained',
+  'pentagon-ufo-files-may-2026-release',
+  'apollo-17-three-dots-ufo-photo-explained',
+  'david-grusch-whistleblower-facts-2026',
+  'kona-blue-uap-program-declassified',
+  'alien-spacecraft-tickets-buying-guide',
+];
+
+const featuredBlogPosts = FEATURED_BLOG_SLUGS.map((slug) =>
+  blogManifest.find((p) => p.slug === slug)
+).filter(Boolean);
 
 const TicketCard = ({ type, price, originalPrice, features, highlight = false, onBooking }) => (
   <div className={`relative pt-8 pb-8 px-8 rounded-2xl glass-card transition-all duration-300 hover:scale-105 hover:border-purple-500/50 ${highlight ? 'border-purple-500 border-2 shadow-[0_0_30px_rgba(124,58,237,0.3)]' : ''}`}>
@@ -363,13 +377,30 @@ function App() {
                 <span key={tag} className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30">{tag}</span>
               ))}
             </div>
-            <a
-              href="/blog/"
-              className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
-            >
-              Read all 50 articles
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <a
+                href="/blog/"
+                className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
+              >
+                Read all 50 articles
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-3">Popular guides (indexed from homepage)</h3>
+              <ul className="space-y-2 text-sm">
+                {featuredBlogPosts.map((post) => (
+                  <li key={post.slug}>
+                    <a
+                      href={`/blog/posts/${post.slug}.html`}
+                      className="text-purple-300 hover:text-purple-200 underline-offset-2 hover:underline"
+                    >
+                      {post.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
