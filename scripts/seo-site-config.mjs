@@ -1,9 +1,10 @@
+/** Primary host: Vercel redirects apex mywayto.space → www (307). All canonicals must use www. */
 export const SITE = {
   name: 'MyWayTo.Space',
-  url: 'https://mywayto.space',
+  url: 'https://www.mywayto.space',
   description:
     'Alien spacecraft tickets, space tourism, and UAP disclosure news — book your interstellar voyage.',
-  ogImage: 'https://mywayto.space/1.png',
+  ogImage: 'https://www.mywayto.space/1.png',
   twitter: '@mywaytospace',
   author: 'MyWayTo.Space Editorial',
   locale: 'en_US',

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mywayto.space/sitemap.xml
+Sitemap: https://www.mywayto.space/sitemap.xml

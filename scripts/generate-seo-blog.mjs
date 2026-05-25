@@ -243,6 +243,7 @@ function renderSitemap(articles) {
   const urls = [
     { loc: SITE.url + '/', priority: '1.0' },
     { loc: SITE.url + '/blog/', priority: '0.9' },
+    // /privacy is a client-side route; included after vercel rewrite to index.html
     { loc: SITE.url + '/privacy', priority: '0.3' },
     ...articles.map((a) => ({
       loc: `${SITE.url}/blog/posts/${a.slug}.html`,

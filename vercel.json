@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/privacy/", "destination": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "myway-psi.vercel.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
+}

@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Rocket, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+const CANONICAL = 'https://www.mywayto.space/privacy';
+
 function Privacy() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Privacy Policy | MyWayTo.Space';
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'canonical';
+      document.head.appendChild(link);
+    }
+    link.href = CANONICAL;
+  }, []);
 
   return (
     <div className="min-h-screen w-full bg-[#050505] text-white selection:bg-purple-500/30 overflow-x-hidden">
