@@ -5,11 +5,11 @@ import { createCheckoutSession } from './stripe';
 import blogManifest from './blog-manifest.json';
 
 const FEATURED_BLOG_SLUGS = [
+  'buy-alien-spaceship-ticket-after-ufo-release',
+  'business-galaxy-ticket-worth-it',
   'war-gov-ufo-portal-pursue-explained',
-  'pentagon-ufo-files-may-2026-release',
-  'apollo-17-three-dots-ufo-photo-explained',
-  'david-grusch-whistleblower-facts-2026',
-  'kona-blue-uap-program-declassified',
+  'alien-voyage-tickets-gift-guide',
+  'first-time-alien-voyage-buyer-checklist',
   'alien-spacecraft-tickets-buying-guide',
 ];
 
@@ -195,7 +195,7 @@ function App() {
             <span className="text-xl font-bold tracking-tight glow-text">mywayto.space</span>
           </div>
           <div className="hidden md:flex gap-8 items-center text-sm font-medium text-gray-400">
-            <a href="/blog/" className="hover:text-white transition-colors">UAP Blog (50+)</a>
+            <a href="/blog/" className="hover:text-white transition-colors">UAP Blog (60+)</a>
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <button onClick={scrollToTerms} className="hover:text-white transition-colors">Terms</button>
             
@@ -367,13 +367,13 @@ function App() {
           <div className="glass-card rounded-2xl p-8 md:p-10 border border-purple-500/20">
             <div className="flex items-center gap-3 mb-4">
               <FileText className="w-8 h-8 text-purple-400" />
-              <h2 className="text-3xl font-bold">U.S. UFO Disclosure Hub — 50 SEO Articles</h2>
+              <h2 className="text-3xl font-bold">U.S. UFO Disclosure Hub — 60 Expert Articles</h2>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Deep guides on war.gov/UFO (PURSUE), AARO 2024 reports, KONA BLUE, David Grusch, Apollo UAP files, and space-ticket buying — built for Google search intent in 2026.
+              Deep guides on war.gov/UFO, AARO reports, and expert buyer checklists for alien spacecraft tickets — built to turn search traffic into booked voyages.
             </p>
             <div className="flex flex-wrap gap-3 mb-6 text-xs text-purple-300">
-              {['war.gov ufo', 'PURSUE files', 'AARO report', 'Apollo 17 UAP', 'Grusch testimony', 'alien tickets'].map((tag) => (
+              {['buy alien ticket', 'Business Galaxy $15', 'PURSUE files', 'gift voyage ticket', 'Stripe checkout', 'first-time buyer'].map((tag) => (
                 <span key={tag} className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30">{tag}</span>
               ))}
             </div>
@@ -382,7 +382,7 @@ function App() {
                 href="/blog/"
                 className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
               >
-                Read all 50 articles
+                Read all 60 articles
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>

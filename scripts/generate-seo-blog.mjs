@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generates 50 SEO-optimized static blog articles for MyWayTo.Space
+ * Generates SEO-optimized static blog articles for MyWayTo.Space
  * Run: node scripts/generate-seo-blog.mjs
  */
 import fs from 'fs';
@@ -208,14 +208,14 @@ function renderBlogIndex(articles) {
 
   const url = `${SITE.url}/blog/`;
   const description =
-    '50+ SEO guides on U.S. UFO/UAP declassification (PURSUE, AARO, Grusch, Apollo files) and alien spacecraft tickets at MyWayTo.Space.';
+    `${articles.length}+ SEO guides on U.S. UFO/UAP declassification and expert alien spacecraft ticket buying at MyWayTo.Space.`;
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UAP & UFO Disclosure Blog (50 Articles) | ${SITE.name}</title>
+  <title>UAP & UFO Disclosure Blog (${articles.length} Articles) | ${SITE.name}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${url}">
   <link rel="alternate" type="application/rss+xml" title="${SITE.name} RSS" href="/rss.xml">

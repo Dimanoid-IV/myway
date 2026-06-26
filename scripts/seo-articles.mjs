@@ -269,6 +269,67 @@ export const ARTICLES = [
 
   S('mywayto-space-tickets-review', 'MyWayTo.Space Tickets Review: Tiers, UX, and Checkout', 'mywayto.space review', 'travel',
     ['Site UX and Glassmorphism Design', 'Ticket Card Comparison', 'Stripe Integration Quality', 'Mobile Horizontal Scroll', 'Blog and SEO Ecosystem', 'Who Should Buy'],
-    ['site runs React + Vite + Tailwind', 'four tiers with Stripe Payment Links', 'blog now includes 50+ UAP SEO articles for organic traffic'],
+    ['site runs React + Vite + Tailwind', 'four tiers with Stripe Payment Links', 'blog includes 60+ UAP and buyer guides for organic traffic'],
     [], { angle: 'commercial', related: ['alien-spacecraft-tickets-buying-guide'] }),
+
+  // === CONVERSION / EXPERT BUYER (10) ===
+  S('buy-alien-spaceship-ticket-after-ufo-release', 'Buy an Alien Spaceship Ticket After the Pentagon UFO Release (2026)', 'buy alien spaceship ticket', 'travel',
+    ['Why Disclosure Headlines Drive Bookings', 'Match Your Curiosity to a Tier', 'Same-Day Checkout Workflow', 'PDF Ticket and QR Boarding Pass', 'Shareable Proof for Social', 'Book Now vs Wait for Next Tranche'],
+    ['PURSUE releases on war.gov/UFO correlate with traffic spikes to space-ticket sites', 'MyWayTo tiers start at $10 — far below legacy suborbital pricing', 'Business Galaxy is marked Most Popular for first-time buyers'],
+    [{ q: 'Can I buy a ticket right after reading war.gov/UFO files?', a: 'Yes. Visit mywayto.space, pick a tier, and complete Stripe checkout in minutes. No clearance required.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['alien-spacecraft-tickets-buying-guide', 'war-gov-ufo-portal-pursue-explained'] }),
+
+  S('alien-voyage-tickets-gift-guide', 'Alien Voyage Tickets as Gifts: Expert Buyer\'s Guide (2026)', 'alien voyage gift ticket', 'travel',
+    ['Best Tier for Birthdays vs Holidays', 'Digital PDF Delivery Timing', 'Personal Message Ideas', 'Group Buys and Tier Mixing', 'Gift Receipt via Stripe Email', 'Surprise Reveal Tactics'],
+    ['PDF tickets email instantly after Stripe payment — ideal last-minute gifts', 'Economy Orbit at $10 fits stocking-stuffer budgets', 'Alien VIP at $25 feels premium without triple-digit pricing'],
+    [{ q: 'Can I gift a ticket without knowing their preferred tier?', a: 'Buy Business Galaxy ($15) as the safe default — it is the Most Popular tier with balanced features.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['economy-orbit-vs-vip-space-tickets'] }),
+
+  S('business-galaxy-ticket-worth-it', 'Is the Business Galaxy Ticket Worth $15? Expert Analysis', 'Business Galaxy ticket worth it', 'travel',
+    ['Feature Breakdown vs Economy', 'Lunar Fly-by Positioning', 'Private Pod Value', 'Synthetic Meals Package', 'When to Upgrade to VIP', 'ROI for Social Sharing'],
+    ['Business Galaxy was $20, now $15 — highlighted as Most Popular on mobile', 'includes private sleeping pod vs shared bio-pod on Economy', '20kg cosmic luggage allowance beats Economy tier'],
+    [{ q: 'Why is Business Galaxy Most Popular?', a: 'It balances price ($15) with premium features — lunar fly-by, private pod, meals — without VIP pricing.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['economy-orbit-vs-vip-space-tickets', 'alien-spacecraft-tickets-buying-guide'] }),
+
+  S('alien-vip-lounge-ticket-review', 'Alien VIP Lounge Ticket Review: Is $25 the Best Upgrade?', 'Alien VIP ticket review', 'travel',
+    ['Interstellar Gateway Access', 'Alien Interaction Lounge', 'Zero-G Spa Value', 'Translator Droid Perk', 'VIP vs One-Way Tradeoffs', 'Who Should Skip VIP'],
+    ['Alien VIP list price was $35, promotional $25', 'lounge and zero-G spa are exclusive to this tier', 'personal translator droid is a unique upsell narrative'],
+    [{ q: 'Is Alien VIP worth $10 more than Business Galaxy?', a: 'Yes if lounge access, spa, and translator droid matter to your voyage story. Otherwise Business Galaxy covers core needs.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['business-galaxy-ticket-worth-it'] }),
+
+  S('one-way-unknown-ticket-explained', 'One-Way Unknown Ticket ($30): Expert Buyer Explainer', 'one way space ticket unknown', 'travel',
+    ['Deep Sleep Chamber Feature', 'Legacy Archive Storage', 'Final Earth-View Gala', 'Psychological Readiness', 'Not for First-Time Buyers', 'Checkout and Terms'],
+    ['One-Way tier was $45, now $30 — highest narrative stakes', 'deep sleep chamber and legacy archive are unique to this tier', 'designed for adventurous buyers who want the ultimate story'],
+    [{ q: 'Who should buy the One-Way ticket?', a: 'Experienced voyage enthusiasts who want maximum drama — not first-time buyers. Start with Economy or Business Galaxy instead.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['alien-vip-lounge-ticket-review'] }),
+
+  S('first-time-alien-voyage-buyer-checklist', 'First-Time Alien Voyage Buyer Checklist (Expert, 2026)', 'first time space voyage ticket', 'travel',
+    ['Pre-Purchase Research Steps', 'Tier Selection Matrix', 'Stripe Checkout Checklist', 'PDF Ticket Verification', 'Terms Section Must-Reads', 'Post-Purchase Sharing'],
+    ['read Terms on mywayto.space before any tier purchase', 'accept cookies banner does not block checkout', 'each tier maps to a dedicated Stripe Payment Link env var'],
+    [{ q: 'What should first-time buyers do before paying?', a: 'Compare all four tiers, read Terms section, confirm email for PDF delivery, then click Book This Voyage.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['booking-interstellar-travel-tickets-online'] }),
+
+  S('stripe-space-ticket-checkout-security', 'Stripe Space Ticket Checkout: Security Guide for Buyers', 'secure space ticket checkout Stripe', 'travel',
+    ['Why Payment Links Beat Custom Forms', 'PCI Compliance Basics', 'Publishable Key vs Secret Key', 'What MyWayTo Never Stores', 'Spotting Phishing Copies', 'Receipt and Dispute Flow'],
+    ['checkout uses Stripe-hosted Payment Links — card data never touches MyWayTo servers', 'VITE_STRIPE_PUBLISHABLE_KEY is safe for frontend; secrets stay in Stripe dashboard', 'confirmation email serves as purchase proof alongside PDF ticket'],
+    [{ q: 'Is it safe to buy tickets on mywayto.space?', a: 'Yes. Stripe handles payment. Look for buy.stripe.com URLs when redirected — never enter card details on unofficial clones.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['booking-interstellar-travel-tickets-online'] }),
+
+  S('ufo-news-to-confirmed-seat-7-days', 'From UFO News to Confirmed Seat: 7-Day Booking Roadmap', 'book seat after UFO news', 'travel',
+    ['Day 1: Read PURSUE Release', 'Day 2: Compare MyWayTo Tiers', 'Day 3: Share Intent Socially', 'Day 4-5: Checkout Window', 'Day 6: PDF Ticket Review', 'Day 7: Boarding Prep'],
+    ['disclosure cycles create 7-day intent windows before attention fades', 'blog articles link disclosure topics to ticket CTAs for SEO funnel', 'Business Galaxy captures most conversions during news spikes'],
+    [{ q: 'How fast can I book after UFO news breaks?', a: 'Same day. Pick a tier at mywayto.space — checkout takes minutes via Stripe.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['buy-alien-spaceship-ticket-after-ufo-release'] }),
+
+  S('affordable-space-tickets-under-30-dollars', 'Affordable Space Tickets Under $30: Expert Roundup (2026)', 'affordable space tickets under 30', 'travel',
+    ['Industry Price Context', 'MyWayTo Four-Tier Ladder', 'Economy at $10 Entry Point', 'Business Galaxy Sweet Spot', 'VIP and One-Way Premium', 'Total Cost of Ownership'],
+    ['all MyWayTo tiers sit under $30 — vs six-figure legacy space tourism', 'Economy Orbit $10 is lowest entry for orbit-themed voyages', 'no hidden platform fees beyond Stripe processing'],
+    [{ q: 'What is the cheapest ticket on MyWayTo.Space?', a: 'Economy Orbit at $10 — Low-Earth Orbit, standard bio-pod, shared oxygen supply.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['how-much-does-space-tourism-cost-2026'] }),
+
+  S('why-book-alien-voyage-before-next-uap-drop', 'Why Book Your Alien Voyage Now (Before the Next UAP Drop)', 'book alien voyage now', 'travel',
+    ['Scarcity and Limited Seats Narrative', 'News Cycle FOMO Psychology', 'Price Promotion Windows', 'Mobile Auto-Scroll to Best Tier', 'Inventory vs Digital Tickets', 'Call to Action Timing'],
+    ['limited seats per jump is stated on the tickets section', 'Business Galaxy highlight drives mobile scroll on first visit', 'rolling PURSUE tranches every few weeks reset social attention'],
+    [{ q: 'Will prices go up after the next UAP release?', a: 'Promotional pricing (Business Galaxy $15, VIP $25, One-Way $30) may not last. Booking now locks current list prices via Stripe.' }],
+    { angle: 'commercial', date: '2026-05-25', related: ['best-time-to-book-space-voyage-2026', 'buy-alien-spaceship-ticket-after-ufo-release'] }),
 ];
